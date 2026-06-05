@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# local editor tooling (not part of the project)
+.cl?ude/
+
+# personal notes / scratch docs
+*.md.pdf
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

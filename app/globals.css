@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; padding: 0; margin: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #F5F7FB;
+    color: #14161C;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #EBEEF4; }
+  ::-webkit-scrollbar-thumb { background: #C2C8D4; border: 2px solid #EBEEF4; }
+  ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
+  ::selection { background: #2563EB; color: #FFFFFF; }
+}
+
+@layer components {
+  .mono { font-family: var(--font-mono), ui-monospace, monospace; }
+
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── Surface panel — flat, hairline border, faint depth ── */
+  .panel {
+    background: #FFFFFF;
+    border: 1px solid rgba(20, 22, 28, 0.10);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.05);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .panel-hover:hover {
+    border-color: rgba(37, 99, 235, 0.55);
+    box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06), 0 12px 32px rgba(37, 99, 235, 0.10);
+  }
+
+  /* ── Buttons ───────────────────────────────────────────── */
+  .btn-accent {
+    background: #2563EB;
+    color: #FFFFFF;
+    border: 1px solid #2563EB;
+    font-weight: 600;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .btn-accent:hover {
+    background: #1D4ED8;
+    border-color: #1D4ED8;
+  }
+
+  .btn-line {
+    background: transparent;
+    color: #14161C;
+    border: 1px solid rgba(20, 22, 28, 0.20);
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .btn-line:hover {
+    border-color: #2563EB;
+    color: #2563EB;
+  }
+
+  /* ── Animated underline link ───────────────────────────── */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+}
+
+@layer utilities {
+  /* Faint engineering grid */
+  .term-grid {
+    background-image:
+      linear-gradient(rgba(20, 22, 28, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 22, 28, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Soft accent glow, e.g. behind hero */
+  .glow {
+    background: radial-gradient(55% 55% at 50% 0%, rgba(37, 99, 235, 0.14), transparent 72%);
+  }
+
+  /* Subtle CRT scanlines overlay */
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(0, 0, 0, 0.14) 3px,
+      transparent 4px
+    );
+  }
+}
